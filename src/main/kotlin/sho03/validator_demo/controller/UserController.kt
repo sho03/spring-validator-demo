@@ -1,6 +1,8 @@
 package sho03.validator_demo.controller
 
 import jakarta.validation.Valid
+import jakarta.validation.constraints.Max
+import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotBlank
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -22,6 +24,8 @@ class UserController {
     data class User(
         @field:NotBlank
         val name: String,
+        @field:Min(0)
+        @field:Max(150)
         val age: Int
     )
 }
